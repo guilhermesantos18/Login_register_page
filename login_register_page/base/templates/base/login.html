@@ -9,12 +9,11 @@
 <body>
     <main>
         <h1>Login</h1>
-        <form action="login/" method="post"></form>
-            <label for="email"></label>
-            <input type="email" id="email" placeholder="E-mail" name="email" required><br><br>
-            <label for="password"></label>
-            <input type="password" id="password" placeholder="Password" name="password" required><br><br>
-            <button type="button">Entrar</button>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form}}
+            <a href="{% url 'register' %}">Not Signed up?</a>
+            <button type="submit" value="OK">Entrar</button>
         </form>
     </main>
 </body>
