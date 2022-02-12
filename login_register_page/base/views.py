@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from .forms import LoginForm
-from .models import Usuario
+
 
 
 def loginPage(request):
@@ -20,8 +20,8 @@ def loginPage(request):
 
 
 def registerPage(request):
-    
-    return render(request, 'base/register.html')
+    return render(request, 'base/register.html')      
+
 
 def welcome(request):
     return render(request, 'base/welcome.html')
