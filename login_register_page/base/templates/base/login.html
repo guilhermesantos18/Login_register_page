@@ -14,6 +14,9 @@
             {{loginform}}
             <a href="{% url 'register' %}">Not Signed up?</a>
             <a href="{% url 'welcome' %}"><button type="submit" value="OK">Entrar</button></a>
+            {% if lista_email_pass[0] == emaillog and  lista_email_pass[1] == passwordlog %}
+                <p>O email ou a password não correspondem tente novamente</p>
+            {% endif %}
         </form>
     </main>
 </body>
