@@ -10,7 +10,10 @@
     <h1>Registar</h1>
     <form action="" method="post">
         {% csrf_token %}
-        {{registerform}}
+        <label for="fname">Email:</label>
+        <input type="text" id="fname" name="email">
+        <label for="lname">Password:</label>
+        <input type="text" id="lname" name="password">
         <a href="{% url 'login' %}"><button type="submit" value="OK">Registar</button></a>
     </form>
 </body>
