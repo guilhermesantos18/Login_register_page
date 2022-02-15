@@ -2,31 +2,21 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.contrib.auth import login, authenticate
 
-from .forms import LoginForm, RegisterForm
 lista_email_pass = []
-context = {}
+
 
 def loginPage(request, emailreg=None, passwordreg=None):
-    lista_email_pass.append(emailreg)
-    lista_email_pass.append(passwordreg) 
     if request.POST:
-        loginform = LoginForm(request.POST)
+        lista_email_pass.append(emailreg)
+        lista_email_pass.append(passwordreg) 
         emaillog = request.POST['email']
         passwordlog = request.POST['password']
         if lista_email_pass[0] == emaillog and  lista_email_pass[1] == passwordlog:
             return HttpResponseRedirect('http://127.0.0.1:8000/welcome')
         else:
             return HttpResponse('O email ou a password não correspondem tente novamente')
-        #if loginform.is_valid():
-    else:
-        loginform = LoginForm()
     
-    context = {'loginform': loginform,
-                'lista_email_pass': lista_email_pass,
-                'emaillog': emaillog,
-                'passwordlog': passwordlog}
-
-    return render(request, 'base/login.html', context) 
+    return render(request, 'base/login.html') 
 
 
 def registerPage(request):
@@ -34,7 +24,7 @@ def registerPage(request):
         emailreg = request.POST['email']
         passwordreg = request.POST['password']
         loginPage(request, emailreg, passwordreg)
-        return HttpResponseRedirect('http://127.0.0.1:8000/login')
+        return HttpResponseRedirect('http://127.0.0.1:8000')
         
     return render(request, 'base/register.html')      
 

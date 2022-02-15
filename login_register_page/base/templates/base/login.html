@@ -11,12 +11,12 @@
         <h1>Login</h1>
         <form action="" method="post">
             {% csrf_token %}
-            {{loginform}}
+            <label for="fname">Email:</label>
+            <input type="text" id="fname" name="email">
+            <label for="lname">Password:</label>
+            <input type="password" id="lname" name="password">
             <a href="{% url 'register' %}">Not Signed up?</a>
-            <a href="{% url 'welcome' %}"><button type="submit" value="OK">Entrar</button></a>
-            {% if lista_email_pass[0] == emaillog and  lista_email_pass[1] == passwordlog %}
-                <p>O email ou a password não correspondem tente novamente</p>
-            {% endif %}
+            <a href="{% url 'welcome' %}"><button type="submit" value="OK">Entrar</button></a> 
         </form>
     </main>
 </body>
